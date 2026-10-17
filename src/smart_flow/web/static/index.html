@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f766e">
+  <title>Smart Flow AI | قراءة الفواتير</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <div class="logo">⚡ Smart Flow AI</div>
+      <h1>بيانات فاتورتك في ثوانٍ</h1>
+      <p class="subtitle">ارفع الفاتورة الضريبية أو صوّر رمز QR فيها، ونستخرج البائع والرقم الضريبي والمبالغ تلقائيًا.</p>
+    </header>
+
+    <!-- 1) الرفع -->
+    <section class="card" id="upload-card">
+      <label class="dropzone" id="dropzone" for="file-input">
+        <span class="dropzone-icon" aria-hidden="true">📄</span>
+        <strong>اسحب الفاتورة هنا أو اضغط للاختيار</strong>
+        <span class="hint">PDF أو صورة • حتى 10MB</span>
+      </label>
+      <input type="file" id="file-input" accept=".pdf,image/png,image/jpeg,image/webp" hidden>
+      <!-- capture تفتح الكاميرا الخلفية مباشرة على الجوال -->
+      <input type="file" id="camera-input" accept="image/*" capture="environment" hidden>
+      <button class="btn btn-primary" id="camera-btn" type="button">📷 تصوير الفاتورة</button>
+      <p class="privacy">🔒 لا نحفظ ملفاتك: تُقرأ الفاتورة ثم تُحذف فورًا.</p>
+    </section>
+
+    <!-- 2) جارٍ المعالجة -->
+    <section class="card hidden" id="status-card" aria-live="polite">
+      <div class="spinner" aria-hidden="true"></div>
+      <p>جارٍ قراءة الفاتورة...</p>
+    </section>
+
+    <!-- 3) النتيجة -->
+    <section class="card hidden" id="result-card" aria-live="polite">
+      <div class="result-header">
+        <span class="badge" id="result-badge"></span>
+      </div>
+
+      <dl class="fields" id="fields">
+        <div class="field"><dt>البائع</dt><dd id="f-seller"></dd></div>
+        <div class="field"><dt>الرقم الضريبي</dt><dd class="ltr" id="f-vat-number"></dd></div>
+        <div class="field"><dt>التاريخ</dt><dd class="ltr" id="f-date"></dd></div>
+        <div class="field"><dt>ضريبة القيمة المضافة</dt><dd id="f-vat"></dd></div>
+        <div class="field field-total"><dt>الإجمالي شامل الضريبة</dt><dd id="f-total"></dd></div>
+      </dl>
+
+      <div class="not-found hidden" id="not-found">
+        <p>لم نجد رمز QR صالحًا في هذه الفاتورة. جرّب:</p>
+        <ul>
+          <li>تصوير رمز QR عن قرب وبشكل واضح</li>
+          <li>إضاءة جيدة بدون ظل على الرمز</li>
+          <li>وضع الفاتورة مسطّحة وتصويرها من الأعلى</li>
+        </ul>
+      </div>
+
+      <button class="btn btn-secondary" id="reset-btn" type="button">قراءة فاتورة أخرى</button>
+    </section>
+
+    <!-- 4) خطأ -->
+    <section class="card card-error hidden" id="error-card" role="alert">
+      <p id="error-message"></p>
+      <button class="btn btn-secondary" id="error-reset-btn" type="button">المحاولة مرة أخرى</button>
+    </section>
+
+    <footer class="footer">
+      Smart Flow AI • <a href="/docs">API Docs</a>
+    </footer>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

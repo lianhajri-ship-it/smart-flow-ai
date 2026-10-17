@@ -1,0 +1,152 @@
+/* الألوان كمتغيرات: نغيّرها في مكان واحد، ونعيد تعريفها للوضع الليلي */
+:root {
+  --bg: #f4f7f6;
+  --card: #ffffff;
+  --text: #1c2b29;
+  --muted: #5f6f6c;
+  --border: #dde5e3;
+  --primary: #0f766e;
+  --primary-hover: #0b5f58;
+  --primary-soft: #e6f4f2;
+  --success-bg: #e3f5ea;
+  --success-text: #17663a;
+  --warning-bg: #fdf3dc;
+  --warning-text: #8a5a00;
+  --error-bg: #fdecec;
+  --error-text: #a12626;
+  --radius: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1716;
+    --card: #182321;
+    --text: #e6eeec;
+    --muted: #9aaba7;
+    --border: #2a3936;
+    --primary: #2bb3a3;
+    --primary-hover: #3fc9b8;
+    --primary-soft: #1d3330;
+    --success-bg: #173324;
+    --success-text: #7fdca5;
+    --warning-bg: #3a2f14;
+    --warning-text: #f2c66d;
+    --error-bg: #3b1c1c;
+    --error-text: #f19d9d;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "IBM Plex Sans Arabic", system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 32px 16px 24px;
+}
+
+.hidden { display: none !important; }
+
+/* --- الترويسة --- */
+.hero { text-align: center; margin-bottom: 24px; }
+.logo { font-weight: 700; color: var(--primary); letter-spacing: 0.3px; }
+.hero h1 { font-size: 1.75rem; margin: 8px 0; }
+.subtitle { color: var(--muted); margin: 0; }
+
+/* --- البطاقات --- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.card-error { background: var(--error-bg); color: var(--error-text); border-color: transparent; }
+
+/* --- منطقة الرفع --- */
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 32px 16px;
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.dropzone:hover, .dropzone.dragging { border-color: var(--primary); background: var(--primary-soft); }
+.dropzone-icon { font-size: 2.25rem; }
+.hint { color: var(--muted); font-size: 0.875rem; }
+.privacy { color: var(--muted); font-size: 0.8125rem; text-align: center; margin: 0; }
+
+/* --- الأزرار --- */
+.btn {
+  font: inherit;
+  font-weight: 500;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  min-height: 48px; /* مساحة لمس مريحة على الجوال */
+}
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-hover); }
+.btn-secondary { background: transparent; color: var(--text); border-color: var(--border); }
+.btn-secondary:hover { border-color: var(--primary); }
+
+/* --- التحميل --- */
+#status-card { align-items: center; text-align: center; }
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--primary-soft);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* --- النتيجة --- */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.badge-success { background: var(--success-bg); color: var(--success-text); }
+.badge-warning { background: var(--warning-bg); color: var(--warning-text); }
+
+.fields { margin: 0; display: flex; flex-direction: column; }
+.field {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.field dt { color: var(--muted); }
+.field dd { margin: 0; font-weight: 500; text-align: left; overflow-wrap: anywhere; }
+.field-total { border-bottom: none; font-size: 1.125rem; }
+.field-total dd { color: var(--primary); font-weight: 700; }
+
+/* الأرقام والتواريخ تُكتب من اليسار لليمين حتى داخل صفحة عربية */
+.ltr { direction: ltr; unicode-bidi: isolate; }
+
+.not-found p { margin: 0 0 8px; }
+.not-found ul { margin: 0; padding-inline-start: 20px; color: var(--muted); }
+
+/* --- التذييل --- */
+.footer { text-align: center; color: var(--muted); font-size: 0.8125rem; margin-top: 24px; }
+.footer a { color: var(--primary); }

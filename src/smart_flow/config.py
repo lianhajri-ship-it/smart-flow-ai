@@ -17,6 +17,8 @@ class Settings:
     failed_dir: Path      # الفواتير التي فشلت معالجتها
     logs_dir: Path
     log_level: str
+    host: str             # 127.0.0.1 = جهازك فقط، 0.0.0.0 = أي جهاز في نفس الشبكة
+    port: int
 
     @classmethod
     def from_env(cls) -> "Settings":
@@ -31,6 +33,8 @@ class Settings:
             failed_dir=data_dir / "failed",
             logs_dir=PROJECT_ROOT / "logs",
             log_level=os.getenv("LOG_LEVEL", "INFO").upper(),
+            host=os.getenv("HOST", "127.0.0.1"),
+            port=int(os.getenv("PORT", "8000")),
         )
 
     def ensure_dirs(self) -> None:
