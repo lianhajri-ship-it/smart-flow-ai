@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smart-flow"
+version = "0.1.0"
+description = "AI-powered invoice automation for Saudi SMEs"
+requires-python = ">=3.11"
+dependencies = [
+    "python-dotenv>=1.0",
+    "pdfplumber>=0.11",
+    "python-bidi>=0.6",
+    "pypdfium2>=4.30",
+    "pillow>=10.0",
+    "numpy>=1.26",
+    "opencv-python-headless>=4.9",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "fpdf2>=2.8",
+    "uharfbuzz>=0.40",
+    "segno>=1.6",
+]
+
+[project.scripts]
+smart-flow = "smart_flow.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

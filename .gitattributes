@@ -1,0 +1,6 @@
+# توحيد نهاية الأسطر (LF) في كل الأنظمة
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.pdf binary
