@@ -150,3 +150,4 @@ body {
 /* --- التذييل --- */
 .footer { text-align: center; color: var(--muted); font-size: 0.8125rem; margin-top: 24px; }
 .footer a { color: var(--primary); }
+.footer p { margin: 4px 0; }
