@@ -56,7 +56,25 @@ body {
 
 /* --- الترويسة --- */
 .hero { text-align: center; margin-bottom: 24px; }
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
 .logo { font-weight: 700; color: var(--primary); letter-spacing: 0.3px; }
+.lang-toggle {
+  font: inherit;
+  font-size: 0.875rem;
+  padding: 6px 14px;
+  min-height: 36px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+}
+.lang-toggle:hover { border-color: var(--primary); }
 .hero h1 { font-size: 1.75rem; margin: 8px 0; }
 .subtitle { color: var(--muted); margin: 0; }
 
@@ -137,7 +155,8 @@ body {
   border-bottom: 1px solid var(--border);
 }
 .field dt { color: var(--muted); }
-.field dd { margin: 0; font-weight: 500; text-align: left; overflow-wrap: anywhere; }
+/* end تعني "نهاية السطر": اليسار في العربي واليمين في الإنجليزي */
+.field dd { margin: 0; font-weight: 500; text-align: end; overflow-wrap: anywhere; }
 .field-total { border-bottom: none; font-size: 1.125rem; }
 .field-total dd { color: var(--primary); font-weight: 700; }
 
