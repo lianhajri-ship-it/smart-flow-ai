@@ -15,6 +15,8 @@
   <img src="docs/screenshots/mobile-ar-dark.png" width="250" alt="Dark mode">
 </p>
 
+📘 **Full project overview in Arabic and English:** [docs/PROJECT_OVERVIEW.md](docs/PROJECT_OVERVIEW.md)
+
 ## Why
 
 Every tax invoice in Saudi Arabia must carry a QR code defined by ZATCA (the Zakat, Tax and Customs Authority). Even so, accountants still type supplier invoices into their systems by hand.
