@@ -17,8 +17,9 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = PROJECT_ROOT / "data" / "inbox" / "sample_invoice.pdf"
 FONT = Path("C:/Windows/Fonts/arial.ttf")  # خط يدعم العربية
 
-SELLER = "مؤسسة النخبة للتجارة"
-VAT_NUMBER = "300123456700003"
+# بيانات وهمية: اسم متجر غير حقيقي، ورقم ضريبي بصيغة الأرقام التجريبية في نماذج الهيئة
+SELLER = "متجر سمارت فلو التجريبي"
+VAT_NUMBER = "399999999900003"
 ISSUED_AT = datetime(2026, 10, 15, 14, 30)
 SUBTOTAL = Decimal("1000.00")
 VAT = SUBTOTAL * Decimal("0.15")

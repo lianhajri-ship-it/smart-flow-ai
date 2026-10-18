@@ -49,13 +49,20 @@ def create_app(
         description="Extract data from Saudi tax invoices (ZATCA QR codes).",
     )
 
-    @app.get("/api/health")
+    @app.get("/api/health", tags=["System"], summary="Check that the service is running")
     def health() -> dict[str, str]:
         return {"status": "ok", "version": __version__}
 
     # دالة عادية (def) وليست async: قراءة الصور عملية ثقيلة على المعالج،
     # و FastAPI يشغّل الدوال العادية في Thread منفصل فلا يتجمد الخادم
-    @app.post("/api/extract", response_model=InvoiceResult)
+    @app.post(
+        "/api/extract",
+        response_model=InvoiceResult,
+        tags=["Invoices"],
+        summary="Extract invoice data from a PDF or image",
+        description="Finds the ZATCA QR code in the uploaded invoice and returns its data. "
+        "The file is processed in a temporary folder and deleted immediately.",
+    )
     def extract(file: UploadFile) -> InvoiceResult:
         suffix = Path(file.filename or "").suffix.lower()
         if suffix not in reader.supported_extensions:

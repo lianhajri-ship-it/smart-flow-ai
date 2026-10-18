@@ -157,6 +157,7 @@ body {
 .field dt { color: var(--muted); }
 /* end تعني "نهاية السطر": اليسار في العربي واليمين في الإنجليزي */
 .field dd { margin: 0; font-weight: 500; text-align: end; overflow-wrap: anywhere; }
+.field dd.nowrap { white-space: nowrap; overflow-wrap: normal; } /* المبلغ وعملته في سطر واحد */
 .field-total { border-bottom: none; font-size: 1.125rem; }
 .field-total dd { color: var(--primary); font-weight: 700; }
 

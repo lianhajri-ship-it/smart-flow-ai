@@ -50,10 +50,10 @@
 
       <dl class="fields" id="fields">
         <div class="field"><dt data-i18n="seller"></dt><dd id="f-seller"></dd></div>
-        <div class="field"><dt data-i18n="vatNumber"></dt><dd class="ltr" id="f-vat-number"></dd></div>
-        <div class="field"><dt data-i18n="date"></dt><dd class="ltr" id="f-date"></dd></div>
-        <div class="field"><dt data-i18n="vatAmount"></dt><dd id="f-vat"></dd></div>
-        <div class="field field-total"><dt data-i18n="total"></dt><dd id="f-total"></dd></div>
+        <div class="field"><dt data-i18n="vatNumber"></dt><dd class="ltr nowrap" id="f-vat-number"></dd></div>
+        <div class="field"><dt data-i18n="date"></dt><dd class="ltr nowrap" id="f-date"></dd></div>
+        <div class="field"><dt data-i18n="vatAmount"></dt><dd class="nowrap" id="f-vat"></dd></div>
+        <div class="field field-total"><dt data-i18n="total"></dt><dd class="nowrap" id="f-total"></dd></div>
       </dl>
 
       <div class="not-found hidden" id="not-found">
@@ -75,7 +75,8 @@
     </section>
 
     <footer class="footer">
-      <p>© 2026 Lina Alhajri. <span data-i18n="rightsReserved"></span></p>
+      <!-- bdi يعزل النص الإنجليزي حتى لا ينقلب ترتيبه داخل الصفحة العربية -->
+      <p><bdi dir="ltr">© 2026 Lina Alhajri.</bdi> <span data-i18n="rightsReserved"></span></p>
       <p>Smart Flow AI • <a href="/docs">API Docs</a></p>
     </footer>
   </main>
