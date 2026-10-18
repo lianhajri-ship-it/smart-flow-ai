@@ -12,6 +12,7 @@ class InvoiceData:
     seller_name: str | None
     vat_number: str | None
     issued_at: datetime | None
-    total: Decimal | None       # الإجمالي شامل الضريبة
+    # المبلغ المستحق شامل الضريبة. يختلف عن "الإجمالي" عند وجود دفعة مقدمة أو تقريب
+    total: Decimal | None
     vat_amount: Decimal | None  # مبلغ ضريبة القيمة المضافة
     source: str                 # الطريقة التي استُخرجت بها البيانات
