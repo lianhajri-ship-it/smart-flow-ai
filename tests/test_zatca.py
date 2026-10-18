@@ -6,12 +6,12 @@ import pytest
 
 from smart_flow.zatca import ZatcaQrError, decode_qr, encode_qr, parse_tlv
 
-SELLER = "مؤسسة النخبة للتجارة"
+SELLER = "متجر سمارت فلو التجريبي"
 
 
 def sample_payload() -> str:
     return encode_qr(
-        SELLER, "300123456700003", datetime(2026, 10, 15, 14, 30), Decimal("1150"), Decimal("150")
+        SELLER, "399999999900003", datetime(2026, 10, 15, 14, 30), Decimal("1150"), Decimal("150")
     )
 
 
@@ -19,7 +19,7 @@ def test_roundtrip_with_arabic_seller():
     data = decode_qr(sample_payload())
 
     assert data.seller_name == SELLER
-    assert data.vat_number == "300123456700003"
+    assert data.vat_number == "399999999900003"
     assert data.issued_at == datetime(2026, 10, 15, 14, 30)
     assert data.total == Decimal("1150.00")
     assert data.vat_amount == Decimal("150.00")

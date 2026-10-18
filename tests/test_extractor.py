@@ -11,7 +11,7 @@ from smart_flow.reader import InvoiceReader
 from smart_flow.zatca import encode_qr
 
 PAYLOAD = encode_qr(
-    "Test Store", "300123456700003", datetime(2026, 10, 15), Decimal("115"), Decimal("15")
+    "Test Store", "399999999900003", datetime(2026, 10, 15), Decimal("115"), Decimal("15")
 )
 
 
@@ -46,7 +46,7 @@ def test_qr_extractor_reads_pdf(tmp_path):
     data = QrExtractor().extract(InvoiceReader().read(path))
 
     assert data is not None
-    assert data.vat_number == "300123456700003"
+    assert data.vat_number == "399999999900003"
 
 
 def test_non_zatca_qr_is_skipped(tmp_path):

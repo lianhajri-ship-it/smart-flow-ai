@@ -12,7 +12,7 @@ from smart_flow.web.app import create_app
 from smart_flow.zatca import encode_qr
 
 PAYLOAD = encode_qr(
-    "متجر الاختبار", "300123456700003", datetime(2026, 10, 15, 9, 0), Decimal("230"), Decimal("30")
+    "متجر الاختبار", "399999999900003", datetime(2026, 10, 15, 9, 0), Decimal("230"), Decimal("30")
 )
 
 
