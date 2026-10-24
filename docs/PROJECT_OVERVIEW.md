@@ -95,6 +95,8 @@
 | الأمر | الوظيفة |
 |---|---|
 | `python -m smart_flow.web` | تشغيل الموقع |
+| `scripts\start_site.cmd` | (Windows) تشغيل الموقع في الخلفية وفتحه بضغطتين |
+| `scripts\stop_site.ps1` | (Windows) إيقاف الموقع الذي يعمل في الخلفية |
 | `python -m smart_flow` | معالجة كل الفواتير في مجلد `data/inbox` دفعة واحدة |
 | `python scripts/make_sample_invoice.py` | إنشاء فاتورة تجريبية فيها رمز QR |
 | `python scripts/check_zatca_samples.py` | اختبار النظام على نماذج الهيئة الرسمية |
@@ -331,6 +333,8 @@ In every state: a language toggle at the top, and the copyright line and an API 
 | Command | Purpose |
 |---|---|
 | `python -m smart_flow.web` | Run the website |
+| `scripts\start_site.cmd` | (Windows) start the site in the background and open it, by double-click |
+| `scripts\stop_site.ps1` | (Windows) stop the background site |
 | `python -m smart_flow` | Process every invoice in `data/inbox` in one batch |
 | `python scripts/make_sample_invoice.py` | Create a sample invoice with a QR code |
 | `python scripts/check_zatca_samples.py` | Check the system against the official ZATCA samples |

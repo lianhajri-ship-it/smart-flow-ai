@@ -126,6 +126,8 @@ pytest                                  # run the tests
 
 To open the site from a phone on the same Wi-Fi, set `HOST=0.0.0.0` in `.env`.
 
+On Windows, double-click `scripts\start_site.cmd` to run the site in the background without a console window, and run `scripts\stop_site.ps1` to stop it.
+
 ## Project structure
 
 ```
